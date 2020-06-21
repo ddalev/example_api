@@ -39,15 +39,27 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $headerAccept = $request->header('Accept');
+        $headerContentType = $request->header('Content-Type');
+
+        if ($headerAccept != 'application/json' || $headerContentType != 'application/json') {
+            return new ExampleMemberResource(
+                [
+                    "message" => "The given data was invalid.",
+                    "errors" => [
+                        'header' => 'header "Accept" and "Content-Type" should be application/json',
+                    ],
+                ]
+            );
+        }
+
+        $request->validate([
             'name' => 'required|max:255',
             'country' => 'required|max:255',
             'birth_date' => 'nullable|date_format:Y-m-d',
         ]);
 
-        if (!empty($validatedData)) {
-            return new ExampleMemberResource($validatedData);
-        }
+
 
         //
         $name = $request->input('name');

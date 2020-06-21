@@ -2,11 +2,14 @@
 Example Laravel Api
 
 # Build Docker container
-cd laravel
+cd laravel && 
 docker-compose up -d
 
 # To generate tables and example records
 docker exec -ti app bash
+
+# Install dependencies
+composer install
 
 # Create tables
 php artisan migrate
