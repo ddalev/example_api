@@ -39,6 +39,16 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'country' => 'required|max:255',
+            'birth_date' => 'nullable|date_format:Y-m-d',
+        ]);
+
+        if (!empty($validatedData)) {
+            return new ExampleMemberResource($validatedData);
+        }
+
         //
         $name = $request->input('name');
         $country = $request->input('country');
