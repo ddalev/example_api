@@ -21,3 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Get players
+Route::get('players', 'PlayerController@index');
+
+// Create new player
+Route::post('player', 'PlayerController@store');
