@@ -17,7 +17,7 @@ php artisan migrate
 # Generate 30 sample records
 php artisan db:seed
 
-#Use Postman for api test
+# Use Postman for api test
 Use Header  
 Content-Type : application/json  
 Content-Type : application/json  
