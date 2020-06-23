@@ -19,7 +19,7 @@ php artisan db:seed
 
 # Use Postman for api test
 Use Header  
-Content-Type : application/json  
+Accept : application/json  
 Content-Type : application/json  
 
 Generate swagger documentation:  
