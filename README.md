@@ -17,17 +17,25 @@ php artisan migrate
 # Generate 30 sample records
 php artisan db:seed
 
+#Use Postman for api test
+Use Header  
+Content-Type : application/json  
+Content-Type : application/json  
+
+Open yaml swagger documentation in  
+https://editor.swagger.io/
+
 # start containers
-docker start app
-docker start db
+docker start app &&
+docker start db &&
 docker start webserver
 
 # stop containers
-docker stop app
-docker stop db
+docker stop app &&
+docker stop db &&
 docker stop webserver
 
 # remove containers
-docker rm app
-docker rm db
+docker rm app &&
+docker rm db &&
 docker rm webserver

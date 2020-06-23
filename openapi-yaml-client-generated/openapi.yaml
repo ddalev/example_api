@@ -1,0 +1,176 @@
+openapi: 3.0.0
+info:
+  title: Example Sportal 365 api
+  description: example api Sportal 365
+  version: 0.0.1
+servers:
+- url: http://127.0.0.1:8100/api/
+  description: example api
+paths:
+  /players:
+    get:
+      tags:
+      - Get Players
+      summary: Returns a list of users.
+      description: This method will return all players 10 per page. You can filter
+        the Players by Country.
+      parameters:
+      - name: page
+        in: query
+        description: use for paging.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: country
+        in: query
+        description: filter players by country.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A JSON array of the Players
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              examples:
+                Get Players:
+                  value: |-
+                    {
+                        "data": [
+                            {
+                                "id": 1,
+                                "name": "Vernice Cruickshank",
+                                "country": "Sao Tome and Principe",
+                                "birth_date": "1992-10-17"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Ashlee Fay",
+                                "country": "Faroe Islands",
+                                "birth_date": "1994-12-18"
+                            },
+                            {
+                                "id": 3,
+                                "name": "Prof. Candelario Bernier III",
+                                "country": "Thailand",
+                                "birth_date": "2000-04-04"
+                            },
+                            {
+                                "id": 4,
+                                "name": "Davon Jenkins",
+                                "country": "India",
+                                "birth_date": "2005-03-19"
+                            },
+                            {
+                                "id": 5,
+                                "name": "Emmy Cruickshank PhD",
+                                "country": "Tajikistan",
+                                "birth_date": "2013-02-08"
+                            },
+                            {
+                                "id": 6,
+                                "name": "Ike Kuhn",
+                                "country": "Tunisia",
+                                "birth_date": "1990-02-08"
+                            },
+                            {
+                                "id": 7,
+                                "name": "Miss Hildegard Nicolas",
+                                "country": "Norfolk Island",
+                                "birth_date": "1985-06-23"
+                            },
+                            {
+                                "id": 8,
+                                "name": "Mrs. Lura Olson",
+                                "country": "Greece",
+                                "birth_date": "1995-12-06"
+                            },
+                            {
+                                "id": 9,
+                                "name": "Dr. Cade Larkin III",
+                                "country": "Luxembourg",
+                                "birth_date": "1986-04-17"
+                            },
+                            {
+                                "id": 10,
+                                "name": "Reilly Williamson",
+                                "country": "Paraguay",
+                                "birth_date": "2012-02-09"
+                            }
+                        ],
+                        "links": {
+                            "first": "http://127.0.0.1:8100/api/players?page=1",
+                            "last": "http://127.0.0.1:8100/api/players?page=4",
+                            "prev": null,
+                            "next": "http://127.0.0.1:8100/api/players?page=2"
+                        },
+                        "meta": {
+                            "current_page": 1,
+                            "from": 1,
+                            "last_page": 4,
+                            "path": "http://127.0.0.1:8100/api/players",
+                            "per_page": 10,
+                            "to": 10,
+                            "total": 34
+                        }
+                    }
+  /player:
+    summary: Inset player
+    description: Insert a player
+    post:
+      tags:
+      - Insert Player
+      summary: insert player
+      description: Insert player, use Headers Content-Type - application/json and
+        Accept - application/json
+      parameters:
+      - name: name
+        in: query
+        description: Insert Player Name.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: country
+        in: query
+        description: Insert Player Country.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: birth_date
+        in: query
+        description: Insert Player date of birth.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: Y-m-d
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                'Successful added player ':
+                  value: |-
+                    {
+                        "data": {
+                            "name": "dalev",
+                            "country": "kenia",
+                            "birth_date": null,
+                            "id": 31
+                        }
+                    }
+components: {}

@@ -17,7 +17,7 @@ class CreateExampleMembersTable extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('country', 255)->index();
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
         });
     }
 
