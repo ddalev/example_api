@@ -5,22 +5,10 @@ namespace App\Http\Controllers;
 use App\ExampleMembers;
 use App\Http\Resources\ExampleMemberResource;
 use Illuminate\Http\Request;
-use OpenApi\Annotations as OA;
-
-/**
- * @OA\Info(title="Example Api Sportal 365", version="0.1")
- * @OA\PathItem(path="Player")
- */
 
 class PlayerController extends Controller
 {
     /**
-     * @OA\Response(
-     *     response=200,
-     *     description="successful operation",
-     *     @OA\JsonContent(ref="/players"),
-     * )
-     *
      * Display a listing of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
