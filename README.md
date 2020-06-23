@@ -28,6 +28,25 @@ https://github.com/ddalev/example_api/blob/master/openapi-yaml-client-generated/
 paste the yaml inside swagger editor and will generate documentation  
 https://editor.swagger.io/
 
+# Alternative documentation 
+Use Header  
+Accept : application/json  
+Content-Type : application/json  
+
+Get list of all Players  
+method GET  
+http://127.0.0.1:8100/api/players  
+
+filter by country 
+http://127.0.0.1:8100/api/players?country=Bulgaria
+
+Store Player  
+method POST  
+http://127.0.0.1:8100/api/player  
+"name": "Dalev", *Required  
+"country": "Bulgaria", *Required  
+"birth_date": null
+
 # start containers
 docker start app &&
 docker start db &&
