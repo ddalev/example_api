@@ -25,7 +25,7 @@ Content-Type : application/json
 Open yaml swagger documentation in  
 coppy the yaml from  
 https://github.com/ddalev/example_api/blob/master/openapi-yaml-client-generated/openapi.yaml  
-paste the yaml inside swagger editor and will generate documentation
+paste the yaml inside swagger editor and will generate documentation  
 https://editor.swagger.io/
 
 # start containers
